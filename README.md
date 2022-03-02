@@ -1,2 +1,2 @@
 # Important-Coding-Quesitons
-Important coding practice questions
+This Repo contains quesions from Leetcode and GeekforGeeks
