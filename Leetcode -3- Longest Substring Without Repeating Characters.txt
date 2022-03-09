@@ -1,0 +1,24 @@
+  public int lengthOfLongestSubstring(String s) {
+        if(s.length()==0) return 0;
+        if(s.length()==1) return 1;
+        int back=0,result=0;
+        
+        for(int i=1;i<s.length();i++){
+            boolean temp=false;
+            int j=i-1;
+            for(j=i-1;j>=back;j--){
+                if(s.charAt(j)==s.charAt(i)){
+                    temp=true;
+                    break;
+                }
+            }
+            if(temp){
+                back=j+1;
+            }
+            if(!temp){
+                result = result < (i-back) ? (i-back) : result;
+            }
+            
+        }
+        return result+1;
+    }
