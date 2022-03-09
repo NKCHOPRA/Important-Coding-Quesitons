@@ -1,0 +1,30 @@
+public int lengthOfLongestSubstring(String s) {
+                // if length is 0 return 0
+        if(s.length()==0) return 0;
+                 // if length is 1 return 1
+        if(s.length()==1) return 1;
+        int back=0,result=0;
+        
+        for(int i=1;i<s.length();i++){
+               //to check repetation 
+            boolean temp=false;
+            int j=i-1;
+            for(j=i-1;j>=back;j--){
+                if(s.charAt(j)==s.charAt(i)){
+                    temp=true;
+                    break;
+                }
+            }
+                //if repetation found then set the back as last location of that character
+            if(temp){
+                back=j+1;
+            }
+               // if no repetation found then calculate the length
+            if(!temp){
+                result = result < (i-back) ? (i-back) : result;
+            }
+            
+        }
+        // we are using 0 based indexing hence we need to increment the result by 1
+        return result+1;
+    }
